@@ -22,4 +22,38 @@
 	WHERE
 		ID=#{id} AND PWD=#{pwd}	
    </select>
+   <insert id="signupCustomer" parameterType="CustomerVO">
+   /* signupCustomer */
+   INSERT INTO CUSTOMER
+   (
+   		ID
+		,PWD
+		,NAME
+		,PHONE
+		,BIRTH_YEAR
+		,BIRTH_DATE
+		,INDATE
+		,UPDATE_DATE
+		,GENDER
+		,USER_TYPE
+		,NUT_AMOUNT
+		,STATUS
+   )
+   VALUES
+   (
+	   #{id}
+	   ,#{pwd}
+	   ,#{name}
+	   ,#{phone}
+	   ,#{birthYear}
+	   ,#{birthDate}
+	   ,sysdate
+	   ,sysdate
+	   ,#{gender}
+	   ,'normal'
+	   ,0
+	   ,'active'
+   
+   )
+   </insert>
 </mapper>

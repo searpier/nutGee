@@ -17,4 +17,10 @@ public class CustomerServiceImpl implements CustomerService{
 		// TODO Auto-generated method stub
 		return cDao.selectCustomer(cvo);
 	}
+
+	@Override
+	public int signupCustomer(CustomerVO cvo) {
+		// TODO Auto-generated method stub
+		return cDao.signupCustomer(cvo);
+	}
 }

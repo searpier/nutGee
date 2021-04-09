@@ -17,8 +17,19 @@ public class CustomerController {
 	@Autowired
 	CustomerService customerService;
 
+	@RequestMapping("/signup")
+	public String singup(@ModelAttribute("CustomerVO") CustomerVO cvo, String birthdayMonth, String birthdayDay,
+			ModelMap medel) throws Exception {
+		cvo.setBirthDate(birthdayMonth + "-" + birthdayDay);
+		System.out.println(cvo);
+		int result = customerService.signupCustomer(cvo);
+		medel.addAttribute("result", result);
+		return "redirect:/";
+	}
+
 	@RequestMapping("/login")
-	public @ResponseBody CustomerVO selectCustomer(@ModelAttribute("CustomerVO") CustomerVO cvo, ModelMap medel) throws Exception {
+	public @ResponseBody CustomerVO selectCustomer(@ModelAttribute("CustomerVO") CustomerVO cvo, ModelMap medel)
+			throws Exception {
 		cvo.setId("searpier");
 		cvo.setPwd("searpier");
 		CustomerVO result = customerService.selectCustomer(cvo);

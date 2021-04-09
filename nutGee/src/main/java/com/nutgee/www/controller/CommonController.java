@@ -14,4 +14,8 @@ public class CommonController {
 	public String index() throws Exception {
 		return "index";
 	}
+	@RequestMapping("/signupForm")
+	public String signup() throws Exception {
+		return "signupForm";
+	}
 }
