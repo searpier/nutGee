@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nutgee.www.customer.dao.CustomerDAO">
+   <select id="selectCustomer" parameterType="CustomerVO"  resultType="CustomerVO">
+    /* selectCustomer */
+	SELECT
+		ID
+		,PWD
+		,NAME
+		,PHONE
+		,BIRTH_YEAR AS BIRTHYEAR
+		,BIRTH_DATE AS BIRTHDATE
+		,INDATE
+		,UPDATE_DATE AS UDATEDATE
+		,GENDER
+		,USER_TYPE AS USERTYPE
+		,NUT_AMOUNT AS NUTAMOUNT
+		,STATUS
+	FROM
+		CUSTOMER
+	WHERE
+		ID=#{id} AND PWD=#{pwd}	
+   </select>
+</mapper>
