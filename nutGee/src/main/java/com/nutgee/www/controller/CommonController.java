@@ -1,5 +1,7 @@
 package com.nutgee.www.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,5 +19,14 @@ public class CommonController {
 	@RequestMapping("/signupForm")
 	public String signup() throws Exception {
 		return "signupForm";
+	}
+	@RequestMapping("/loginForm")
+	public String loginForm() throws Exception {
+		return "loginForm";
+	}
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) throws Exception {
+		session.setAttribute("id", null);
+		return "redirect:/";
 	}
 }

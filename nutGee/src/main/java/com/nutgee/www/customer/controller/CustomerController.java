@@ -1,5 +1,7 @@
 package com.nutgee.www.customer.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -28,11 +30,12 @@ public class CustomerController {
 	}
 
 	@RequestMapping("/login")
-	public @ResponseBody CustomerVO selectCustomer(@ModelAttribute("CustomerVO") CustomerVO cvo, ModelMap medel)
+	public String selectCustomer(@ModelAttribute("CustomerVO") CustomerVO cvo,HttpSession session, ModelMap medel)
 			throws Exception {
-		cvo.setId("searpier");
-		cvo.setPwd("searpier");
 		CustomerVO result = customerService.selectCustomer(cvo);
-		return result;
+		if(result!=null) {
+			session.setAttribute("id", result.getId());
+		}
+		return "redirect:/";
 	}
 }

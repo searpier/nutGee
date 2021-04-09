@@ -43,16 +43,13 @@ select {
 				<li><a href="about.html">넛게시판</a></li>
 				<li><a href="shop.html">넛 채팅</a></li>
 				<li><a href="blog.html">넛블로그</a></li>
-				<!--<li><a href="elements.html">Elements</a></li>
-				<li><a href="#">Pages</a>
+				<li><a href="#">회원</a>
 				<ul class="sub-menu">
-					<li><a href="portfolio-item.html">Portfolio Item</a></li>
-					<li><a href="blog-single.html">Blog Article</a></li>
-					<li><a href="shop-single.html">Shop Item</a></li>
-					<li><a href="portfolio-category.html">Portfolio Category</a></li>
+					<li><a href='/logout' th:if="${session.id!=null}" th:text="로그아웃"></a></li>
+					<li><a href='/signupForm' th:if="${session.id==null}" th:text="회원가입"></a></li>
+					<li><a href='/loginForm' th:if="${session.id==null}" th:text="로그인"></a></li>
 				</ul>
-				</li>-->
-				<li><a href="/signupForm">회원가입</a></li>
+				</li>
 			</ul>
 		</div>
 		</nav>
@@ -63,7 +60,7 @@ select {
 				<main id="main" class="site-main">
 				<article id="post-39" class="post-39 page type-page status-publish hentry">
 				<header class="entry-header">
-				<h1 class="entry-title">회원가입</h1>
+				<h1 class="entry-title">회원 가입</h1>
 				</header>
 				<!-- .entry-header -->
 				<div class="entry-content">
