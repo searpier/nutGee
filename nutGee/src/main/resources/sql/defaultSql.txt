@@ -1,0 +1,27 @@
+CREATE TABLE customer (
+	id	varchar2(20)		NOT NULL,
+	pwd	varchar2(30)		NULL,
+	name	varchar2(30)		NULL,
+	phone	varchar2(15)		NULL,
+	birth_year	varchar2(8)		NULL,
+	birth_date	varchar2(5)		NULL,
+	indate	date		NULL,
+	update_date	date		NULL,
+	gender	varchar2(4)		NULL,
+	nut_amount	number		NULL,
+	status	varchar2(10)		NULL,
+	user_type	varchar2(10)		NULL
+);
+
+CREATE TABLE BOARD (
+	board_seq	number	NOT NULL,
+	id	varchar2(20)	NOT NULL,
+	title	varchar2(150)	NULL,
+	content	varchar2(3000)	NULL,
+	view_count	number	NULL,
+	like_count	number	NULL,
+	indate	date	NULL,
+	update_date	date	NULL
+);
+
+CREATE SEQUENCE BOARD_SEQ;

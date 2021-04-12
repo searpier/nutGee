@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>넛지</title>
+<link rel='stylesheet' href='css/woocommerce-layout.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='css/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)'/>
+<link rel='stylesheet' href='css/woocommerce.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='css/font-awesome.min.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='css/style.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700' type='text/css' media='all'/>
+<link rel='stylesheet' href='css/easy-responsive-shortcodes.css' type='text/css' media='all'/>
+</head>
+<body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
+<div id="page">
+	<div class="container">
+		<header id="masthead" class="site-header">
+		<div class="site-branding">
+			<a href="/"><h1 style="font-family: 'Herr Von Muellerhoff';color: rgb(168, 100, 102);font-weight:300;text-align: center;margin-bottom:0;margin-top:0;line-height:1.4;font-size: 46px;">NutGee</h1></a>
+			<h2 class="site-description">넛지 모두의 서비스마켓</h2>
+		</div>
+		<nav id="site-navigation" class="main-navigation">
+		<button class="menu-toggle">Menu</button>
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+		<div class="menu-menu-1-container">
+			<ul id="menu-menu-1" class="menu">
+				<li><a href="index.html">넛지하기</a></li>
+				<li><a href="/boardList">넛게시판</a></li>
+				<li><a href="shop.html">넛 채팅</a></li>
+				<li><a href="/blogList">넛블로그</a></li>
+				<li><a href="#">회원</a>
+				<ul class="sub-menu">
+					<li><a href='/logout' th:if="${session.id!=null}" th:text="로그아웃"></a></li>
+					<li><a href='/signupForm' th:if="${session.id==null}" th:text="회원가입"></a></li>
+					<li><a href='/loginForm' th:if="${session.id==null}" th:text="로그인"></a></li>
+				</ul>
+				</li>
+			</ul>
+		</div>
+		</nav>
+		</header>
+		<!-- #masthead -->
+		<div id="content" class="site-content">
+			<div id="primary" class="content-area column two-thirds single-portfolio">
+				<div class="widget-area">
+					<aside class="widget">
+						<h4 class="widget-title">게시글 작성하기</h4>
+						<form class="wpcf7" method="post" action="contact.php" id="contactform">
+							<div class="form">
+								<p><input type="text" name="title" placeholder="게시물 제목"></p>
+								
+								<!--<p><textarea name="content" rows="8" placeholder="게시글"></textarea></p>
+								-->
+								
+								<div class="jsx-2303464893 editor"> 
+								<div class="fr-box fr-basic fr-top" role="application"> 
+									<div class="fr-wrapper show-placeholder" dir="auto" style="overflow: scroll;"> 
+										<textarea name="notice_content" id="smartEditor" style="width: 100%; height: 412px;"></textarea> 
+									</div> 
+								</div> 
+							</div>
+								
+								<input type="submit" id="submit" class="clearfix btn" value="작성하기">
+							</div>
+							<!-- SmartEditor2 --> 
+							
+
+						</form>
+					</aside>
+				</div>
+			</div>
+			<!-- #primary -->
+			
+			<div id="secondary" class="column third">
+				<div id="sidebar-1" class="widget-area" role="complementary">
+				
+					<aside id="recent-posts-2" class="widget widget_recent_entries">
+					<h4 class="widget-title">최근 게시글</h4>
+					<ul>
+						<li>
+						<a href="blog-single.html">Somewhere in time</a>
+						</li>
+						<li>
+						<a href="blog-single.html">Thanks for watching!</a>
+						</li>
+						<li>
+						<a href="blog-single.html/">Who could have thought?</a>
+						</li>
+						<li>
+						<a href="blog-single.html">Text Alignement</a>
+						</li>
+						<li>
+						<a href="blog-single.html">HTML Tags and Formatting</a>
+						</li>
+					</ul>
+					</aside>
+					
+					<aside id="text-6" class="widget widget_text">
+					<h4 class="widget-title">Like us on Facebook</h4>
+					<div class="textwidget">
+						<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fwowthemesnet-562560840468823%2F&amp;tabs=timeline&amp;width=340&amp;height=380&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false&amp;appId=365036103630036" width="340" height="380" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true">
+						</iframe>
+					</div>
+					</aside>
+					
+					
+				</div>
+				<!-- .widget-area -->
+			</div>
+		</div>
+		<!-- #content -->
+	</div>
+	<!-- .container -->
+	<footer id="colophon" class="site-footer">
+	<div class="container">
+		<div class="site-info">
+			<h1 style="font-family: 'Herr Von Muellerhoff';color: #ccc;font-weight:300;text-align: center;margin-bottom:0;margin-top:0;line-height:1.4;font-size: 46px;">NutGee</h1>
+			 <a target="blank" href="https://www.wowthemes.net/">&copy; 넛지 - 우리 모두의 서비스 마켓플레이스</a>
+		</div>
+	</div>	
+	</footer>
+	<a href="#top" class="smoothup" title="Back to top"><span class="genericon genericon-collapse"></span></a>
+</div>
+<!-- #page -->
+<script src='js/jquery.js'></script>
+<script src='js/plugins.js'></script>
+<script src='js/scripts.js'></script>
+<script src='js/masonry.pkgd.min.js'></script>
+<script src='js/validate.js'></script>
+<script type="text/javascript" src="se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script>
+
+var oEditors = []; 
+nhn.husky.EZCreator.createInIFrame({ 
+	oAppRef : oEditors, 
+	elPlaceHolder : "smartEditor", 
+	//저는 textarea의 id와 똑같이 적어줬습니다. 
+	sSkinURI : "se2/SmartEditor2Skin.html", 
+	//경로를 꼭 맞춰주세요! 
+	fCreator : "createSEditor2", 
+	htParams : { 
+		// 툴바 사용 여부 (true:사용/ false:사용하지 않음) 
+		bUseToolbar : true, 
+		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음) 
+		bUseVerticalResizer : false, 
+		// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음) 
+		bUseModeChanger : false } }); 
+		
+		$(function() { 
+			$("#savebutton").click(function() { 
+				oEditors.getById["smartEditor"].exec("UPDATE_CONTENTS_FIELD", []);
+				 //textarea의 id를 적어줍니다. 
+				 var selcatd = $("#selcatd > option:selected").val();
+				 var title = $("#title").val(); 
+				 var content = document.getElementById("smartEditor").value;; 
+				 if (selcatd == "") { alert("카테고리를 선택해주세요."); return; } 
+				 if (title == null || title == "") { alert("제목을 입력해주세요."); 
+				 $("#title").focus(); return; } 
+				 
+				 if(content == "" || content == null || content == '&nbsp;' || content == '<br>' || content == '<br/>' || content == '<p>&nbsp;</p>'){
+					 alert("본문을 작성해주세요."); 
+					 oEditors.getById["smartEditor"].exec("FOCUS"); 
+					 //포커싱 
+					 return; }
+					  //이 부분은 스마트에디터 유효성 검사 부분이니 참고하시길 바랍니다. 
+					  var result = confirm("발행 하시겠습니까?");
+					  
+					   if(result){ alert("발행 완료!"); $("#noticeWriteForm").submit(); }else{ return; } }); })
+
+
+</script>
+</body>
+</html>

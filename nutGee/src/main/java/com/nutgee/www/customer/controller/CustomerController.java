@@ -23,7 +23,6 @@ public class CustomerController {
 	public String singup(@ModelAttribute("CustomerVO") CustomerVO cvo, String birthdayMonth, String birthdayDay,
 			ModelMap medel) throws Exception {
 		cvo.setBirthDate(birthdayMonth + "-" + birthdayDay);
-		System.out.println(cvo);
 		int result = customerService.signupCustomer(cvo);
 		medel.addAttribute("result", result);
 		return "redirect:/";

@@ -1961,6 +1961,7 @@ ul.shortcode-archive li {
 	.bloggrid article:nth-child(2n+2) {
 		margin-right:0;
 	}
+	
 }
 .bloggrid article.hentry,.single-portfolio .hentry {
 	margin-bottom:0;

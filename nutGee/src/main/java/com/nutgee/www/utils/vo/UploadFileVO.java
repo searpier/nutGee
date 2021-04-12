@@ -1,7 +1,9 @@
 package com.nutgee.www.utils.vo;
 
 public class UploadFileVO {
-	private Long Id;
+	private String Id;
+
+	private String fileSeq;
 
 	private String fileName;
 
@@ -10,13 +12,23 @@ public class UploadFileVO {
 	private String fileType;
 
 	private Long size;
+	
+	private String indate;
 
-	public Long getId() {
+	public String getId() {
 		return Id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		Id = id;
+	}
+
+	public String getFileSeq() {
+		return fileSeq;
+	}
+
+	public void setFileSeq(String fileSeq) {
+		this.fileSeq = fileSeq;
 	}
 
 	public String getFileName() {
@@ -50,4 +62,13 @@ public class UploadFileVO {
 	public void setSize(Long size) {
 		this.size = size;
 	}
+
+	public String getIndate() {
+		return indate;
+	}
+
+	public void setIndate(String indate) {
+		this.indate = indate;
+	}
+	
 }

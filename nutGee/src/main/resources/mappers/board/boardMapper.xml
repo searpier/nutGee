@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nutgee.www.board.dao.BoardDAO">
+
+   <select id="totalBoardCount" resultType="int">
+ 	SELECT 
+ 		COUNT(*)
+   	FROM
+   		BOARD
+   </select>
+   <select id="selectAllBoard" resultType="BoardVO">
+ 	SELECT 
+ 		BOARD_SEQ
+   		,ID
+   		,TITLE
+   		,CONTENT
+   		,INDATE
+   		,UPDATE_DATE
+   	FROM
+   		BOARD
+   </select>
+   <insert id="insertBoard" parameterType="BoardVO">
+   	INSERT INTO BOARD
+   	(
+   		BOARD_SEQ
+   		,ID
+   		,TITLE
+   		,CONTENT
+   		,INDATE
+   		,UPDATE_DATE
+   	)	
+   	VALUES
+   	(
+   		BOARD_SEQ.NEXTVAL
+   		,#{id}
+   		,#{title}
+   		,#{content}
+   		,sysdate
+   		,sysdate
+   	)
+   </insert>
+</mapper>
