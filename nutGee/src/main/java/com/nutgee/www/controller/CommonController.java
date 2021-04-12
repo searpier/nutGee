@@ -24,6 +24,10 @@ public class CommonController {
 	public String loginForm() throws Exception {
 		return "loginForm";
 	}
+	@RequestMapping("/blogList")
+	public String blogList() throws Exception {
+		return "blog";
+	}
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) throws Exception {
 		session.setAttribute("id", null);
