@@ -46,9 +46,9 @@
 				<div class="widget-area">
 					<aside class="widget">
 						<h4 class="widget-title">게시글 작성하기</h4>
-						<form class="wpcf7" method="post" action="contact.php" id="contactform">
+						<form class="wpcf7" method="post" action="/board/" id="contactform">
 							<div class="form">
-								<p><input type="text" name="title" placeholder="게시물 제목"></p>
+								<p><input type="text" id="title" name="title" placeholder="게시물 제목"></p>
 								
 								<!--<p><textarea name="content" rows="8" placeholder="게시글"></textarea></p>
 								-->
@@ -56,7 +56,7 @@
 								<div class="jsx-2303464893 editor"> 
 								<div class="fr-box fr-basic fr-top" role="application"> 
 									<div class="fr-wrapper show-placeholder" dir="auto" style="overflow: scroll;"> 
-										<textarea name="notice_content" id="smartEditor" style="width: 100%; height: 412px;"></textarea> 
+										<textarea name="content" id="smartEditor" style="width: 100%; height: 412px;"></textarea> 
 									</div> 
 								</div> 
 							</div>
@@ -129,6 +129,7 @@
 <script src='js/masonry.pkgd.min.js'></script>
 <script src='js/validate.js'></script>
 <script type="text/javascript" src="se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
 var oEditors = []; 
@@ -147,26 +148,29 @@ nhn.husky.EZCreator.createInIFrame({
 		// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음) 
 		bUseModeChanger : false } }); 
 		
-		$(function() { 
-			$("#savebutton").click(function() { 
+				
+	 $(function(){
+		$("#submit").click(function() {
 				oEditors.getById["smartEditor"].exec("UPDATE_CONTENTS_FIELD", []);
-				 //textarea의 id를 적어줍니다. 
-				 var selcatd = $("#selcatd > option:selected").val();
-				 var title = $("#title").val(); 
-				 var content = document.getElementById("smartEditor").value;; 
-				 if (selcatd == "") { alert("카테고리를 선택해주세요."); return; } 
-				 if (title == null || title == "") { alert("제목을 입력해주세요."); 
-				 $("#title").focus(); return; } 
-				 
-				 if(content == "" || content == null || content == '&nbsp;' || content == '<br>' || content == '<br/>' || content == '<p>&nbsp;</p>'){
+				var title = $("#title").val(); 
+				var content = document.getElementById("smartEditor").value; 
+				 alert(content);
+				if (title == null || title == "") { 
+					alert("제목을 입력해주세요."); 
+				 	$("#title").focus(); 
+				 	return; 
+				}
+				if(content == "" || content == null || content == '&nbsp;' || content == '<br>' || content == '<br/>' || content == '<p>&nbsp;</p>'){
 					 alert("본문을 작성해주세요."); 
 					 oEditors.getById["smartEditor"].exec("FOCUS"); 
 					 //포커싱 
-					 return; }
-					  //이 부분은 스마트에디터 유효성 검사 부분이니 참고하시길 바랍니다. 
-					  var result = confirm("발행 하시겠습니까?");
-					  
-					   if(result){ alert("발행 완료!"); $("#noticeWriteForm").submit(); }else{ return; } }); })
+					 return; 
+				}
+		
+		})
+	})
+					   
+		
 
 
 </script>

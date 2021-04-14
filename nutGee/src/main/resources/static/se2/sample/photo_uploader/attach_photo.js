@@ -334,7 +334,7 @@
     	var tempFile,
     		sUploadURL;
     	
-    	sUploadURL= 'file_uploader_html5.php'; 	//upload URL
+    	sUploadURL= 'http://localhost:9090/uploadFile'; 	//upload URL
     	
     	//파일을 하나씩 보내고, 결과를 받음.
     	for(var j=0, k=0; j < nImageInfoCnt; j++) {
@@ -351,9 +351,11 @@
 	}
     
     function callAjaxForHTML5 (tempFile, sUploadURL){
-    	var oAjax = jindo.$Ajax(sUploadURL, {
+	console.log(tempFile);
+    	/*var oAjax = jindo.$Ajax(sUploadURL, {
 			type: 'xhr',
 			method : "post",
+			data: tempFile,
 			onload : function(res){ // 요청이 완료되면 실행될 콜백 함수
 				var sResString = res._response.responseText;
 				if (res.readyState() == 4) {
@@ -370,10 +372,28 @@
 			onerror :  jindo.$Fn(onAjaxError, this).bind()
 		});
 		oAjax.header("contentType","multipart/form-data");
+		oAjax.header("Content-Type","application/json");
 		oAjax.header("file-name",encodeURIComponent(tempFile.name));
 		oAjax.header("file-size",tempFile.size);
 		oAjax.header("file-Type",tempFile.type);
-		oAjax.request(tempFile);
+		oAjax.request("filedata",tempFile);*/
+		
+		var form = document.getElementById("editor_upimage");
+         var formData = new FormData(form);
+
+		
+		var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function()
+        {
+            if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            {
+                alert(xmlHttp.responseText);
+            }
+        }
+        xmlHttp.open("post", "http://localhost:9090/uploadFile"); 
+        xmlHttp.send(formData); 
+		
+		
     }
     
     function makeArrayFromString(sResString){
@@ -544,16 +564,16 @@
   		checkDragAndDropAPI();
   		
   		if(bSupportDragAndDropAPI){
-  			$Element("pop_container2").hide();
-  			$Element("pop_container").show();
+  			$Element("pop_container2").show();
+  			$Element("pop_container").hide();
   			
   			welTextGuide.removeClass("nobg");
   			welTextGuide.className("bg");
   			
   			addEvent();
   		} else {
-  			$Element("pop_container").hide();
   			$Element("pop_container2").show();
+  			$Element("pop_container").hide();
   			callFileUploader();
   		}
   		fnUploadImage = $Fn(uploadImage,this);
@@ -579,9 +599,9 @@
  	function setPhotoToEditor(oFileInfo){
 		if (!!opener && !!opener.nhn && !!opener.nhn.husky && !!opener.nhn.husky.PopUpManager) {
 			//스마트 에디터 플러그인을 통해서 넣는 방법 (oFileInfo는 Array)
-			opener.nhn.husky.PopUpManager.setCallback(window, 'SET_PHOTO', [oFileInfo]);
+			//opener.nhn.husky.PopUpManager.setCallback(window, 'SET_PHOTO', [oFileInfo]);
 			//본문에 바로 tag를 넣는 방법 (oFileInfo는 String으로 <img src=....> )
-			//opener.nhn.husky.PopUpManager.setCallback(window, 'PASTE_HTML', [oFileInfo]);
+			opener.nhn.husky.PopUpManager.setCallback(window, 'PASTE_HTML', [oFileInfo]);
 		}
 	}
  	

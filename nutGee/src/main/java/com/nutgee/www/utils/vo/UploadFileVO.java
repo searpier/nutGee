@@ -12,7 +12,7 @@ public class UploadFileVO {
 	private String fileType;
 
 	private Long size;
-	
+
 	private String indate;
 
 	public String getId() {
@@ -70,5 +70,11 @@ public class UploadFileVO {
 	public void setIndate(String indate) {
 		this.indate = indate;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "UploadFileVO [Id=" + Id + ", fileSeq=" + fileSeq + ", fileName=" + fileName + ", fileDownloadUri="
+				+ fileDownloadUri + ", fileType=" + fileType + ", size=" + size + ", indate=" + indate + "]";
+	}
+
 }
